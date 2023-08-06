@@ -63,11 +63,25 @@ Determine if there are any outliers.
 ### (your step 1)
 ### (your step 2)
 
+Calculated fields created:
+- Cost per Amount of Damage: ```{ FIXED [Effect: Amount of damage (detailed)] : SUM([Cost: Total $]) }```.  Used to aggregate total cost for the category "Effect: Amount of damage (detailed)".
+- Number of Strikes per Year: ```{ FIXED DATETRUNC('year', [Collision Date and Time]) : SUM([Number of Strikes])}```.  Used to aggregate the total amount of strikes recorded per year.
+- Fixed Animals Hit: ```{ FIXED [Number of Strikes]: COUNT([Number of Strikes]) }```.  Used to record the total number of strikes to show in multiple categories.
+- Percent animals hit: ```COUNT([FAA Wildlife Strikes])/SUM([Fixed Animals Hit])```.  Uses "Fixed Animals Hit" to find the percent of total for different categories.
+
+
 ## Results
+All the worksheets used are saved to "Rough Worksheets Filtered in Inderactive Story and Dashboards.pdf".
+It should be clear that these are not the final results of what was presented.
+The worksheets were used to clarify information in the story and dashboards in case the cursor was hovering over a datapoint,
+or a filter was used to shorten excessively long lists.
 (Fill in which Option you chose, either 1 or 2. List the dataset you selected for the project if you selected Option 2. Also, discuss the visualizations you created, and why. For Option 2, also identify what your data question was, and how you went through the prompts.)
 
 ## Challenges 
-(discuss challenges you faced in the project)
+Some of the challenges faced was trying to find a pattern between locations, time, and animals/species.
+A lot of the problems came from trying to tie together several variables at once and to make the graph more palatable.
+NOTE: Some of the graphs included, (such as "Ave Feet Above Ground vs Flight Stage"), are an example of this challenge.
+Some graphs are too oversaturated and harder to read and are included in the storyboard as an example of such.
 
 ## Future Goals
 (what would you do if you had more time?)
