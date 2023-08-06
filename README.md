@@ -56,7 +56,8 @@ Presentation Guidelines:
 
 
 ## Project/Goals
-(fill in your description and goals here)
+Find a relationship between time, species, location, number of strikes, cost, damage, and trends.
+Determine if there are any outliers.
 
 ## Process
 ### (your step 1)
