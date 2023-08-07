@@ -1,81 +1,95 @@
 # Final-Project-Tableau
 
-#### I) FAA Wildlife Strikes, 2015: 
-This is a cleaned table of wildlife strikes from 2000-2015 in the United States. 
-Visit the FAA Wildlife Strike Database which contains records of wildlife strikes reported by 
-airlines, airports, pilots, and other sources. 
-The dataset is available here as [faa_data_subset.xlsx]
-(https://docs.google.com/spreadsheets/d/1V-tOmmtGtiY_3XMnYtVblDhlj_kzLBxa/edit?usp=sharing&ouid=108445376648788204707&rtpof=true&sd=true.)
-
-Follow the steps below:
-
-1. Connect your data
-2. Detect different data types in your data
-3. Build at least 5 different visualizations to learn more about the dataset
-4. There are three main different categorical features in the table. Try to learn more about these categories and find appropriate numerical features to study different trends. 
-  - Effect 
-  - When
-  - Wildlife
-5. In your final project you should show visualizations with:
-  - Maps
-  - Date and time
-  - Analytical visuals (Forecasting - Clustering)
-  - Show Me tables
-6. Try to find an interesting pattern, trend, outlier, etc. from the data used in the above steps.
-7. From step 5, try to detect meaningful keypoints. This is the starting point to think about your dashboard. 
-8. Now that you are familiar with your dataset and your columns, in this step, 
-come up with different questions which you will be answering and presenting at the end of this project.
-9. Create the dashboard to answer your questions that you came up with in step 8 and try to revise your questions along the way.
-10. Get ready to present your dashboard 
-
-Submission Guidelines:
-
-For this project, you will need to submit a link to your github repo that contains all of the files listed. The files submitted will be evaluated.
-
-Your repo must include the following:
-
-    Include one PDF file with your presentation. It should be named 
-	
-	TableauPresentation_Option2_faa_data_subset_Frood_Michael.PDF
-	
-        Make sure you list if you either addressed Option 1 or 2 in the title in the OptionNumber part of the PDF name.
-        Make sure to name the dataset you selected for the Dataset part of the title of the file if you are completing Option 2.
-    The presentation should include the visualizations and key takeaways from your investigation (follow the Presentation Guidelines section on this page for further information).
-    One Worksheet (in .twb format) with your dashboards/visualizations you created.
-
-
-Presentation Guidelines:
-
-    Spend 1 min on project flow structure. What were the steps in your project?
-    Spend 1-2 minutes showing your results. Make sure to highlight:
-        For Option 1, share the visualizations that you produced in response to the questions.
-        For Option 2, please share what your main data question was, what you wanted to answer, the dataset you selected, and then explain some of the features of the dataset as well.
-    Explain the biggest challenges in 1 min.
-        What would you do if you had a bit more time?
-    In your presentation, make sure to explain the rationale for the visualizations you selected for either Option 1 or 2.
-
-
 ## Project/Goals
-Find a relationship between time, species, location, number of strikes, cost, damage, and trends.
+### Data File Chosen: FAA Wildlife Strikes, 2015
+This is a cleaned table of wildlife strikes from 2000-2015 in the United States. 
+
+Using the dataset, the goal is to find a relationship between time, species, location, number of strikes, cost, damage, and trends.
 Determine if there are any outliers.
+There are also several questions to be answered.
+How many animals are struck by planes annually?
+When and where are they struck?
+Which species are most vulnerable and where?
+What is the damage of the strikes?
+What is the cost associated?
 
-## Process
-### (your step 1)
-### (your step 2)
+## Process and Results
+The data was reviewed and datasets were looked at.  
+The initial query was to try and find a relationship between time and number of strikes.  
+First the time of day and frequency of strikes was isolated in a dashboard.
+It was found that most of the collisions take place during the day at 8:00 am. This is correlated with airport peak time around 6:00 am in the U.S.
+The states with the most strikes are the most populus ones with highest air traffic.
 
-Calculated fields created:
+Next the category of animal and number of strikes per month was looked at.
+It was found that the most struck category of animal by airplane are birds and that the amount of animals struck increases between migration periods.
+There is also a yearly increase in the amount of animals struck.  The most pronounced increase is between 2008 and 2009.
+
+Further analysis of the graph showed that on top of migration, the increase in strikes against all animals can be due to a higher frequency of flights,
+(as indicated by the most populus states), and an increase in the amount of animals present.  
+Both factors increase during the summer.
+
+A relationship between stage of flight and animals struck found that the highest struck species was the Eared Grebe at 20,000 feet during the climb phase.
+The max height of all categories for each stage was for birds.
+The chart also showed that the average height is skewed lower for birds because most strikes take place on ground level.
+Because there are a higher frequency of birds struck at a low level, bats have a higher average height.
+There were too many variables shown at once which oversaturated the figure.  This is explained more in the challenges section.
+
+A plot of the number of animals struck vs year showed that the number of projected animals struck followed an exponential increase.
+After answering how many animals are struck by time and where, the next question was which species are most vulnerable?
+
+Several calculated fields were created:
 - Cost per Amount of Damage: ```{ FIXED [Effect: Amount of damage (detailed)] : SUM([Cost: Total $]) }```.  Used to aggregate total cost for the category "Effect: Amount of damage (detailed)".
 - Number of Strikes per Year: ```{ FIXED DATETRUNC('year', [Collision Date and Time]) : SUM([Number of Strikes])}```.  Used to aggregate the total amount of strikes recorded per year.
 - Fixed Animals Hit: ```{ FIXED [Number of Strikes]: COUNT([Number of Strikes]) }```.  Used to record the total number of strikes to show in multiple categories.
 - Percent animals hit: ```COUNT([FAA Wildlife Strikes])/SUM([Fixed Animals Hit])```.  Uses "Fixed Animals Hit" to find the percent of total for different categories.
+These Calculated fields were used to clarify information in the story and dashboards in case the cursor was hovering over a datapoint,
+or a filter was used to shorten excessively long lists.  
 
+The number of strikes per the Top x Species, (Top x Species being a filter), was plotted in a dashboard.
+Out of the top 5 species most struck, the highest number was for Mourning dove in Texas.  
+The second most common were Gulls in more populus coastal regions, such as New York and California.
+The Barn Swallow is most struck in Florida.
+European Starling most struck in Pennsylvania.
+Horned Lark most struck in Colerado.
 
-## Results
+After damage to wildlife, what's the damage and cost to flights?
+Isolating for damage, impact on flight, and number of species struck found that around 
+83% of hits cause no damage and no impact to flight.
+
+A plot compared the effect strikes had against category of animal, which also listed the average and total cost.
+It was found that the average cost of having the vehicle destroyed is greater than substantial and other types of damage.
+It's also found that terrestrial mammals have a higher cost compared to birds.
+However substantial damage and birds being struck are more frequent than destroyed and terrestrial mammals, so this causes a greater total cost.
+
+After answering the damage and cost associated, another question to look into are which species are associated with the greatest cost?
+A dashboard plotting the total cost per species and assiciated state showed that out of the Top x Species,
+the most costly mammals are deer with $30,963,668, mostly occuring in Alabama.
+The most costly birds are Geese with $103,792,693.
+
+Geese was a big outlier in New York which warrented further investigation.
+Plotting each data point against indiviual cost found that the outlying datapoint had:
+Wildlife: Canada goose        
+Airport: LA GUARDIA ARPT
+Effect: Destroyed
+Date: Jan. 15, 2009        
+Cost: $41,071,585
+The most costly collision in the dataset was discovered to be the historic event when captain Sully Sullenberger made an emergency landing in the Hudson River.
+
+A final dashboard was constructed to look at the aggregate total cost per year and relook at the number of strikes per month forcast.
+A trendline for the aggregate cost showed a linear increase the total cost built up each year.
+This was compared to the exponential trendline shown in the number of strikes per month plot.
+What the trendline shows is that while the number of animals struck each year is increasing exponentially,
+the total cost in comparison is only linear.  So the total cost per species hit is actually becoming more cost effective.
+
+### Files Saved
 All the worksheets used are saved to "Rough Worksheets Filtered in Inderactive Story and Dashboards.pdf".
-It should be clear that these are not the final results of what was presented.
+It should be noted that these are not the final results of what was presented.
 The worksheets were used to clarify information in the story and dashboards in case the cursor was hovering over a datapoint,
-or a filter was used to shorten excessively long lists.
-(Fill in which Option you chose, either 1 or 2. List the dataset you selected for the project if you selected Option 2. Also, discuss the visualizations you created, and why. For Option 2, also identify what your data question was, and how you went through the prompts.)
+or filters were used to shorten excessively long lists.
+Dashboards used in the story were saved in the file "Dashboards.pdf".
+The Tableau file was saved to "LHL-Tableau-Project.twbx".
+The story and presentation is in the file "TableauPresentation_Option2_faa_data_subset_Frood_Michael.pdf",
+but the interactive story is also available in the "LHL-Tableau-Project.twbx" file.
 
 ## Challenges 
 Some of the challenges faced was trying to find a pattern between locations, time, and animals/species.
@@ -83,5 +97,10 @@ A lot of the problems came from trying to tie together several variables at once
 NOTE: Some of the graphs included, (such as "Ave Feet Above Ground vs Flight Stage"), are an example of this challenge.
 Some graphs are too oversaturated and harder to read and are included in the storyboard as an example of such.
 
+I could not figure out how to save the file from Tableau public as a .twb file but I did save it as a .twbx file.
+
 ## Future Goals
-(what would you do if you had more time?)
+If I had more time I'd look deeper into a multivariable geographic location where animals were struck and try to relate that to cost per location.
+One way would be to create a worksheet to isolate information to each airport code, e.g. cost, number of strikes, distance from airport, average height, etc. in a table.
+The table would be divided by state.  Then, I would create a map of the states, and place that worksheet information into a tooltip.
+One could then get a list of all the state airport information by hovering the cursor it.
