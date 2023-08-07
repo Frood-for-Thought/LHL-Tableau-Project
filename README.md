@@ -68,11 +68,11 @@ The most costly birds are Geese with $103,792,693.
 
 Geese was a big outlier in New York which warrented further investigation.
 Plotting each data point against indiviual cost found that the outlying datapoint had:
-Wildlife: Canada goose        
-Airport: LA GUARDIA ARPT
-Effect: Destroyed
-Date: Jan. 15, 2009        
-Cost: $41,071,585
+- Wildlife: Canada goose        
+- Airport: LA GUARDIA ARPT
+- Effect: Destroyed
+- Date: Jan. 15, 2009        
+- Cost: $41,071,585
 The most costly collision in the dataset was discovered to be the historic event when captain Sully Sullenberger made an emergency landing in the Hudson River.
 
 A final plot was constructed to look at the average total cost per year and relook at the number of strikes per month.
