@@ -79,7 +79,8 @@ A final dashboard was constructed to look at the aggregate total cost per year a
 A trendline for the aggregate cost showed a linear increase the total cost built up each year.
 This was compared to the exponential trendline shown in the number of strikes per month plot.
 What the trendline shows is that while the number of animals struck each year is increasing exponentially,
-the total cost in comparison is only linear.  So the total cost per species hit is actually becoming more cost effective.
+the total cost in comparison is only linear.  
+So the total cost per species hit is actually becoming more cost effective.
 
 ### Files Saved
 All the worksheets used are saved to "Rough Worksheets Filtered in Inderactive Story and Dashboards.pdf".
