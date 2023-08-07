@@ -87,8 +87,11 @@ All the worksheets used are saved to "Rough Worksheets Filtered in Inderactive S
 It should be noted that these are not the final results of what was presented.
 The worksheets were used to clarify information in the story and dashboards in case the cursor was hovering over a datapoint,
 or filters were used to shorten excessively long lists.
+
 Dashboards used in the story were saved in the file "Dashboards.pdf".
+
 The Tableau file was saved to "LHL-Tableau-Project.twbx".
+
 The story and presentation is in the file "TableauPresentation_Option2_faa_data_subset_Frood_Michael.pdf",
 but the interactive story is also available in the "LHL-Tableau-Project.twbx" file.
 
