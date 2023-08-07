@@ -75,11 +75,11 @@ Date: Jan. 15, 2009
 Cost: $41,071,585
 The most costly collision in the dataset was discovered to be the historic event when captain Sully Sullenberger made an emergency landing in the Hudson River.
 
-A final dashboard was constructed to look at the aggregate total cost per year and relook at the number of strikes per month forcast.
-A trendline for the aggregate cost showed a linear increase the total cost built up each year.
+A final plot was constructed to look at the average total cost per year and relook at the number of strikes per month.
+A trendline for the average cost showed a linear decrease the total cost built up each year, (other than a few costly outliers).
 This was compared to the exponential trendline shown in the number of strikes per month plot.
 What the trendline shows is that while the number of animals struck each year is increasing exponentially,
-the total cost in comparison is only linear.  
+the average cost in comparison is linearly decreasing.  
 So the total cost per species hit is actually becoming more cost effective.
 
 ### Files Saved
